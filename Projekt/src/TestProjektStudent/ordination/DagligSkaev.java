@@ -1,5 +1,6 @@
 package TestProjektStudent.ordination;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -14,7 +15,8 @@ public class DagligSkaev extends Ordination {
     // ----------------------------------------------------------------------------------------------------------------
 
 
-    public DagligSkaev(LocalTime tid, double antal) {
+    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Patient patient, LocalTime tid, double antal) {
+        super(startDen, slutDen, patient);
         this.tid = tid;
         this.antal = antal;
     }
