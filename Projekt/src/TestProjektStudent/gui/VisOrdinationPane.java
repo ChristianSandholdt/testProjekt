@@ -1,11 +1,11 @@
 package TestProjektStudent.gui;
 
-import TestProjektStudent.controller.Controller;
+import TestProjektStudent.controller.*;
+import TestProjektStudent.ordination.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
-import ordination.*;
 
 public class VisOrdinationPane extends GridPane {
     private final ListView<Patient> lstPatient = new ListView<>();

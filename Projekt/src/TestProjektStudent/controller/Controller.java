@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-import ordination.*;
-import storage.Storage;
+import TestProjektStudent.ordination.*;
+import TestProjektStudent.storage.Storage;
 
 public abstract class Controller {
     private static Storage storage;
