@@ -2,6 +2,7 @@ package TestProjektStudent.controller;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import TestProjektStudent.ordination.*;
@@ -81,7 +82,11 @@ public abstract class Controller {
      * kastes en IllegalArgumentException.
      */
     public static void ordinationPNAnvendt(PN ordination, LocalDate dato) {
-
+        ArrayList<LocalDate> anvendt = new ArrayList<>();
+        if (dato.isAfter(ordination.getStartDato()) || dato.isBefore(ordination.getSlutDato())){
+            anvendt.add(dato);
+        }else
+            throw new IllegalArgumentException("Startdatoen er efter slutdatoen. FEJL!");
     }
 
     /**
@@ -89,15 +94,27 @@ public abstract class Controller {
      * (afhænger af patientens vægt).
      */
     public static double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
-
-        return 0;
+        double dosis = 0;
+        if (patient.getVaegt() < 25){
+            dosis = laegemiddel.getEnhedPrKgPrDoegnLet();
+        }
+        else if (patient.getVaegt() >= 25|| patient.getVaegt() < 120){
+            dosis = laegemiddel.getEnhedPrKgPrDoegnNormal();
+        }
+        else dosis = laegemiddel.getEnhedPrKgPrDoegnTung();
+        return dosis;
     }
 
     /** Returner antal ordinationer for det givne vægtinterval og det givne lægemiddel. */
     public static int antalOrdinationerPrVaegtPrLaegemiddel(
             double vaegtStart, double vaegtSlut, Laegemiddel laegemiddel) {
-
-        return 0;
+        ArrayList<Ordination> ordinationer = new ArrayList<>();
+        for (Patient p : getAllPatienter()){
+            if (p.getVaegt() >= vaegtStart && p.getVaegt() <= vaegtSlut){
+                ordinationer.addAll(p.getOrdinationer());
+            }
+        }
+        return ordinationer.size();
     }
 
     public static List<Patient> getAllPatienter() {
