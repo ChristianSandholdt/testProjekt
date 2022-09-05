@@ -3,7 +3,7 @@ package TestProjektStudent.ordination;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class DagligSkaev {
+public class DagligSkaev extends Ordination {
 
     // komposition --> 0..* Dosis
     private final ArrayList<Dosis> dosis = new ArrayList<>();
@@ -35,11 +35,24 @@ public class DagligSkaev {
 
 
     public Dosis opretDosis(String navn, LocalTime tid, double antal) {
-        Dosis nyDosis = new Dosis(navn, tid, antal);
-        dosis.add(nyDosis);
-        return nyDosis;
+        Dosis doser = new Dosis(navn, tid, antal);
+        dosis.add(doser);
+        return doser;
     }
 
 
+    @Override
+    public double samletDosis() {
+        return 0;
+    }
 
+    @Override
+    public double doegnDosis() {
+        return 0;
+    }
+
+    @Override
+    public String getType() {
+        return null;
+    }
 }

@@ -16,12 +16,32 @@ public abstract class Ordination {
         this.patient = patient;
     }
 
+    // association --> 0..1 laegemiddel
+    private Laegemiddel laegemiddel; // nullable
+
+    // ----------------------------------------------------------------------------------------------------------------
+
     public LocalDate getStartDen() {
         return startDen;
     }
 
     public LocalDate getSlutDen() {
         return slutDen;
+    }
+
+    /** Note: Nullable return value. */
+    public Laegemiddel getLaegemiddel() {
+        return laegemiddel;
+    }
+
+    /** Pre: This person is not connected to a laegemiddel. */
+    public void setLaegemiddel(Laegemiddel laegemiddel) {
+        this.laegemiddel = laegemiddel;
+    }
+
+    /** Pre: This person is connected to a laegemiddel. */
+    public void removeLaegemiddel() {
+        this.laegemiddel = null;
     }
 
     /** Returner antal hele dage mellem startdato og slutdato. Begge dage inklusive. */
