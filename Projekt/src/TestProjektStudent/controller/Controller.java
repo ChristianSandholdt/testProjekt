@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+import TestProjektStudent.ordination.Laegemiddel;
+import TestProjektStudent.ordination.PN;
+import TestProjektStudent.ordination.Patient;
+import TestProjektStudent.storage.Storage;
 import ordination.*;
 import storage.Storage;
 
