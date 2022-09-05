@@ -51,13 +51,13 @@ public class DagligSkaev extends Ordination {
         for (Dosis d : dosis) {
             temp += d.getAntal();
         }
-        sum = temp * (int) ChronoUnit.DAYS.between(getStartDen(), getSlutDen());
+        sum = temp * (int) ChronoUnit.DAYS.between(getStartDato(), getSlutDato());
         return sum;
     }
 
     @Override
     public double doegnDosis() {
-        double sum = samletDosis() / (int) ChronoUnit.DAYS.between(getStartDen(), getSlutDen());
+        double sum = samletDosis() / (int) ChronoUnit.DAYS.between(getStartDato(), getSlutDato());
         return sum;
     }
 
