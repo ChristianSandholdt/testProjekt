@@ -15,7 +15,7 @@ public class Patient {
         return new ArrayList<>(ordinationer);
     }
 
-    public List<Ordination> addOrdination(Ordination ordination){
+    public void addOrdination(Ordination ordination){
         ordinationer.add(ordination);
     }
     //--------------------------------------------------------------------------------------------
