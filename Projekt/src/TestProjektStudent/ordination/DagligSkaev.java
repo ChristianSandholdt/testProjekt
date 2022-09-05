@@ -2,6 +2,7 @@ package TestProjektStudent.ordination;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class DagligSkaev extends Ordination {
@@ -37,7 +38,7 @@ public class DagligSkaev extends Ordination {
 
 
     public Dosis opretDosis(String navn, LocalTime tid, double antal) {
-        Dosis doser = new Dosis(navn, tid, antal);
+        Dosis doser = new Dosis(tid, antal);
         dosis.add(doser);
         return doser;
     }
@@ -45,16 +46,23 @@ public class DagligSkaev extends Ordination {
 
     @Override
     public double samletDosis() {
-        return 0;
+        double sum = 0;
+        double temp = 0;
+        for (Dosis d : dosis) {
+            temp += d.getAntal();
+        }
+        sum = temp * (int) ChronoUnit.DAYS.between(getStartDen(), getSlutDen());
+        return sum;
     }
 
     @Override
     public double doegnDosis() {
-        return 0;
+        double sum = samletDosis() / (int) ChronoUnit.DAYS.between(getStartDen(), getSlutDen());
+        return sum;
     }
 
     @Override
     public String getType() {
-        return null;
+        return "Skæv";
     }
 }
