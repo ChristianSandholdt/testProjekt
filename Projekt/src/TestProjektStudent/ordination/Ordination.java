@@ -5,19 +5,17 @@ import java.time.temporal.ChronoUnit;
 
 public abstract class Ordination {
 
-    Patient patient;
     private LocalDate startDen;
     private LocalDate slutDen;
-
 
     // association --> 0..1 laegemiddel
     private Laegemiddel laegemiddel; // nullable
 
     // ----------------------------------------------------------------------------------------------------------------
-    public Ordination(LocalDate startDen, LocalDate slutDen, Patient patient){
+    public Ordination(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel){
         this.startDen = startDen;
         this.slutDen = slutDen;
-        this.patient = patient;
+        this.laegemiddel = laegemiddel;
     }
 
     public LocalDate getStartDen() {
