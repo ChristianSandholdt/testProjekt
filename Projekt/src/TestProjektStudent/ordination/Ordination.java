@@ -5,7 +5,6 @@ import java.time.temporal.ChronoUnit;
 
 public abstract class Ordination {
 
-
     Patient patient;
     private LocalDate startDen;
     private LocalDate slutDen;
