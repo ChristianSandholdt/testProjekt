@@ -1,15 +1,22 @@
 package TestProjektStudent.ordination;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class PN extends Ordination {
+
     private double antalEnheder;
 
-    private double antalGange = 0;
+    private ArrayList<LocalDate> datoer = new ArrayList<>();
 
-    public PN(LocalDate startDen, LocalDate slutDen, Patient patient) {
+    public PN(LocalDate startDen, LocalDate slutDen, Patient patient, double antalEnheder) {
         super(startDen, slutDen, patient);
+        this.antalEnheder = antalEnheder;
+    }
+
+    public double getAntalEnheder() {
+        return antalEnheder;
     }
 
     /**
@@ -18,7 +25,6 @@ public class PN extends Ordination {
      * Returner false ellers, og datoen givesDen ignoreres.
      */
     public boolean givDosis(LocalDate givesDen) {
-        ArrayList<LocalDate> datoer = new ArrayList<>();
         if (givesDen.isAfter(getStartDen()) && givesDen.isBefore(getSlutDen())){
             datoer.add(givesDen);
             return true;
@@ -28,22 +34,24 @@ public class PN extends Ordination {
 
     /** Returner antal gange ordinationen er anvendt. */
     public int getAntalGangeGivet() {
-        return -1;
+        return datoer.size()-1;
     }
 
 
     @Override
     public double samletDosis() {
-        return 0;
+        double sum = getAntalGangeGivet() * getAntalEnheder();
+        return sum;
     }
 
     @Override
     public double doegnDosis() {
-        return 0;
+        double sum = antalEnheder / (int) ChronoUnit.DAYS.between(getStartDen(),getSlutDen());
+        return sum;
     }
 
     @Override
     public String getType() {
-        return null;
+        return "PN";
     }
 }
