@@ -25,7 +25,7 @@ public class PN extends Ordination {
      * Returner false ellers, og datoen givesDen ignoreres.
      */
     public boolean givDosis(LocalDate givesDen) {
-        if (givesDen.isAfter(getStartDen()) && givesDen.isBefore(getSlutDen())){
+        if (givesDen.isAfter(getStartDato()) && givesDen.isBefore(getSlutDato())){
             datoer.add(givesDen);
             return true;
         }
@@ -46,7 +46,7 @@ public class PN extends Ordination {
 
     @Override
     public double doegnDosis() {
-        double sum = antalEnheder / (int) ChronoUnit.DAYS.between(getStartDen(),getSlutDen());
+        double sum = antalEnheder / (int) ChronoUnit.DAYS.between(getStartDato(),getSlutDato());
         return sum;
     }
 

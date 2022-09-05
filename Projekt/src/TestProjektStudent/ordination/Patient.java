@@ -9,10 +9,10 @@ public class Patient {
     private final double vaegt;
 
     //--------------------------------------------------------------------------------------------
-    public List<Ordination> ordinations = new ArrayList<>();
+    public List<Ordination> ordinationer = new ArrayList<>();
 
-    public List<Ordination> getOrdinations(){
-        return new ArrayList<>(ordinations);
+    public List<Ordination> getOrdinationer(){
+        return new ArrayList<>(ordinationer);
     }
     //--------------------------------------------------------------------------------------------
     public Patient(String cprnr, String navn, double vaegt) {

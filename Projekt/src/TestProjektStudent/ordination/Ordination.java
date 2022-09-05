@@ -5,25 +5,25 @@ import java.time.temporal.ChronoUnit;
 
 public abstract class Ordination {
 
-    private LocalDate startDen;
-    private LocalDate slutDen;
+    private LocalDate startDato;
+    private LocalDate slutDato;
 
     // association --> 0..1 laegemiddel
     private Laegemiddel laegemiddel; // nullable
 
     // ----------------------------------------------------------------------------------------------------------------
     public Ordination(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel){
-        this.startDen = startDen;
-        this.slutDen = slutDen;
+        this.startDato = startDen;
+        this.slutDato = slutDen;
         this.laegemiddel = laegemiddel;
     }
 
-    public LocalDate getStartDen() {
-        return startDen;
+    public LocalDate getStartDato() {
+        return startDato;
     }
 
-    public LocalDate getSlutDen() {
-        return slutDen;
+    public LocalDate getSlutDato() {
+        return slutDato;
     }
 
     /** Note: Nullable return value. */
@@ -43,12 +43,12 @@ public abstract class Ordination {
 
     /** Returner antal hele dage mellem startdato og slutdato. Begge dage inklusive. */
     public int antalDage() {
-        return (int) ChronoUnit.DAYS.between(startDen, slutDen) + 1;
+        return (int) ChronoUnit.DAYS.between(startDato, slutDato) + 1;
     }
 
     @Override
     public String toString() {
-        return startDen.toString();
+        return startDato.toString();
     }
 
     /** Returner den totale dosis, der er givet i den periode ordinationen er gyldig. */

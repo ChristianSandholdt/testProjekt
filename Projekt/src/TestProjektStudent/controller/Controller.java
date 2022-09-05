@@ -6,8 +6,6 @@ import java.util.List;
 
 import TestProjektStudent.ordination.*;
 import TestProjektStudent.storage.Storage;
-import ordination.*;
-import storage.Storage;
 
 public abstract class Controller {
     private static Storage storage;
