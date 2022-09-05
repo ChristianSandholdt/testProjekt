@@ -16,24 +16,13 @@ public class DagligSkaev extends Ordination {
     // ----------------------------------------------------------------------------------------------------------------
 
 
-    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, LocalTime tid, double antal) {
+    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
         super(startDen, slutDen, laegemiddel);
-        this.tid = tid;
-        this.antal = antal;
     }
 
     public ArrayList<Dosis> getDoser() {
         return new ArrayList<>();
     }
-
-    public double getAntal() {
-        return antal;
-    }
-
-    public LocalTime getTid() {
-        return tid;
-    }
-
     // ----------------------------------------------------------------------------------------------------------------
 
 

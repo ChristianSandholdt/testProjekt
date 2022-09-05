@@ -41,8 +41,15 @@ public abstract class Controller {
     public static DagligFast opretDagligFastOrdination(
             LocalDate startDato, LocalDate slutDato, Patient patient, Laegemiddel laegemiddel,
             double morgenAntal, double middagAntal, double aftenAntal, double natAntal) {
+        DagligFast dagligFast;
+        if (startDato.isBefore(slutDato)){
+            dagligFast = new DagligFast(startDato,slutDato,laegemiddel);
+            dagligFast.opretDosis(morgenAntal, middagAntal, aftenAntal, natAntal);
+            patient.addOrdination(dagligFast);
+        }else
+            throw new IllegalArgumentException("Startdatoen er efter slutdatoen. FEJL!");
 
-        return null;
+        return dagligFast;
     }
 
     /**
@@ -54,10 +61,18 @@ public abstract class Controller {
      * Pre: I antalEnheder er alle tal >= 0.
      */
     public static DagligSkaev opretDagligSkaevOrdination(
-            LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
+            LocalDate startDato, LocalDate slutDato, Patient patient, Laegemiddel laegemiddel,
             LocalTime[] klokkeSlet, double[] antalEnheder) {
-
-        return null;
+        DagligSkaev dagligSkaev = null;
+        if (startDato.isBefore(slutDato)){
+            dagligSkaev = new DagligSkaev(startDato,slutDato,laegemiddel);
+            patient.addOrdination(dagligSkaev);
+            
+            for (int i = 0; i < antalEnheder.length; i++){
+                dagligSkaev.opretDosis(klokkeSlet[i], antalEnheder[i]);
+            }
+        }
+        return dagligSkaev;
     }
 
     /**
