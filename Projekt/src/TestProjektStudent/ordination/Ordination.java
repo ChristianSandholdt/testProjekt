@@ -12,9 +12,9 @@ public abstract class Ordination {
     private Laegemiddel laegemiddel; // nullable
 
     // ----------------------------------------------------------------------------------------------------------------
-    public Ordination(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel){
-        this.startDato = startDen;
-        this.slutDato = slutDen;
+    public Ordination(LocalDate startDato, LocalDate slutDato, Laegemiddel laegemiddel){
+        this.startDato = startDato;
+        this.slutDato = slutDato;
         this.laegemiddel = laegemiddel;
     }
 

@@ -14,6 +14,10 @@ public class Patient {
     public List<Ordination> getOrdinationer(){
         return new ArrayList<>(ordinationer);
     }
+
+    public List<Ordination> addOrdination(Ordination ordination){
+        ordinationer.add(ordination);
+    }
     //--------------------------------------------------------------------------------------------
     public Patient(String cprnr, String navn, double vaegt) {
         this.cprnr = cprnr;
