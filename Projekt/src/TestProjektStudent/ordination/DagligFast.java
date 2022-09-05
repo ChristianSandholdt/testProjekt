@@ -37,7 +37,7 @@ public class DagligFast extends Ordination {
 
     @Override
     public double doegnDosis() {
-        return samletDosis() / getStartDen().until(getSlutDen(), ChronoUnit.DAYS);
+        return samletDosis() / (int)getStartDen().until(getSlutDen(), ChronoUnit.DAYS);
     }
 
     @Override
