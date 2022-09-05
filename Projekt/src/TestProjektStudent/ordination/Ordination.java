@@ -9,16 +9,16 @@ public abstract class Ordination {
     private LocalDate startDen;
     private LocalDate slutDen;
 
-    public Ordination(LocalDate startDen, LocalDate slutDen, Patient patient){
-        this.startDen = startDen;
-        this.slutDen = slutDen;
-        this.patient = patient;
-    }
 
     // association --> 0..1 laegemiddel
     private Laegemiddel laegemiddel; // nullable
 
     // ----------------------------------------------------------------------------------------------------------------
+    public Ordination(LocalDate startDen, LocalDate slutDen, Patient patient){
+        this.startDen = startDen;
+        this.slutDen = slutDen;
+        this.patient = patient;
+    }
 
     public LocalDate getStartDen() {
         return startDen;

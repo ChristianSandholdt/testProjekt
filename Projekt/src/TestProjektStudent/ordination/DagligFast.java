@@ -3,7 +3,7 @@ package TestProjektStudent.ordination;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class DagligFast {
+public class DagligFast extends Ordination {
 
     public Dosis[] doser = new Dosis[4];
 
@@ -25,6 +25,7 @@ public class DagligFast {
     private double nat;
 
     public DagligFast(LocalDate fra, LocalDate til, double morgen, double middag, double aften, double nat){
+        super();
         this.fra = fra;
         this.til = til;
         this.morgen = morgen;
@@ -33,4 +34,18 @@ public class DagligFast {
         this.nat = nat;
     }
 
+    @Override
+    public double samletDosis() {
+        return 0;
+    }
+
+    @Override
+    public double doegnDosis() {
+        return 0;
+    }
+
+    @Override
+    public String getType() {
+        return null;
+    }
 }
