@@ -98,7 +98,7 @@ public abstract class Controller {
         if (patient.getVaegt() < 25){
             dosis = laegemiddel.getEnhedPrKgPrDoegnLet();
         }
-        else if (patient.getVaegt() >= 25|| patient.getVaegt() < 120){
+        else if (patient.getVaegt() >= 25 && patient.getVaegt() < 120){
             dosis = laegemiddel.getEnhedPrKgPrDoegnNormal();
         }
         else dosis = laegemiddel.getEnhedPrKgPrDoegnTung();
@@ -111,7 +111,11 @@ public abstract class Controller {
         ArrayList<Ordination> ordinationer = new ArrayList<>();
         for (Patient p : getAllPatienter()){
             if (p.getVaegt() >= vaegtStart && p.getVaegt() <= vaegtSlut){
-                ordinationer.addAll(p.getOrdinationer());
+                for (Ordination o : p.getOrdinationer()){
+                    if (o.getLaegemiddel().equals(laegemiddel)){
+                        ordinationer.add(o);
+                    }
+                }
             }
         }
         return ordinationer.size();
