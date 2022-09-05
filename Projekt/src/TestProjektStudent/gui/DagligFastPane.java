@@ -4,8 +4,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-import java.awt.*;
-
 public class DagligFastPane extends GridPane {
     private final TextField txtMorgen = new TextField();
     private final TextField txtMiddag = new TextField();

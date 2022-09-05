@@ -1,10 +1,20 @@
 package TestProjektStudent.ordination;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Patient {
     private final String cprnr;
     private final String navn;
     private final double vaegt;
 
+    //--------------------------------------------------------------------------------------------
+    public List<Ordination> ordinations = new ArrayList<>();
+
+    public List<Ordination> getOrdinations(){
+        return new ArrayList<>(ordinations);
+    }
+    //--------------------------------------------------------------------------------------------
     public Patient(String cprnr, String navn, double vaegt) {
         this.cprnr = cprnr;
         this.navn = navn;
