@@ -6,18 +6,12 @@ import java.time.LocalTime;
 public class Dosis {
     private final LocalTime tid;
     private final double antal;
-    private String navn;
 
     // ----------------------------------------------------------------------------------------------------------------
 
-    Dosis(String navn, LocalTime tid, double antal) { // OBS: Package visible
-        this.navn = navn;
+    Dosis(LocalTime tid, double antal) { // OBS: Package visible
         this.tid = tid;
         this.antal = antal;
-    }
-
-    public String getNavn() {
-        return navn;
     }
 
     public double getAntal() {

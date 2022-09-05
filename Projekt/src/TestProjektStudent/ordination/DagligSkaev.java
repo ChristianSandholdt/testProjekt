@@ -36,8 +36,8 @@ public class DagligSkaev extends Ordination {
     // ----------------------------------------------------------------------------------------------------------------
 
 
-    public Dosis opretDosis(String navn, LocalTime tid, double antal) {
-        Dosis doser = new Dosis(navn, tid, antal);
+    public Dosis opretDosis(LocalTime tid, double antal) {
+        Dosis doser = new Dosis(tid, antal);
         dosis.add(doser);
         return doser;
     }
@@ -45,6 +45,7 @@ public class DagligSkaev extends Ordination {
 
     @Override
     public double samletDosis() {
+
         return 0;
     }
 
@@ -55,6 +56,6 @@ public class DagligSkaev extends Ordination {
 
     @Override
     public String getType() {
-        return null;
+        return "bashed makker";
     }
 }

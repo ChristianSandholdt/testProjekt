@@ -1,9 +1,7 @@
 package TestProjektStudent.gui;
 
 import TestProjektStudent.controller.Controller;
-import TestProjektStudent.ordination.DagligFast;
-import TestProjektStudent.ordination.Ordination;
-import TestProjektStudent.ordination.Patient;
+import TestProjektStudent.ordination.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;

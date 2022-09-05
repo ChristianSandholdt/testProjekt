@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+import TestProjektStudent.ordination.*;
+import TestProjektStudent.storage.Storage;
 import ordination.*;
 import storage.Storage;
 
