@@ -1,6 +1,7 @@
 package TestProjektStudent.gui;
 
 import TestProjektStudent.controller.Controller;
+import TestProjektStudent.ordination.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;

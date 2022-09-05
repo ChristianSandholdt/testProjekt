@@ -1,14 +1,23 @@
 package TestProjektStudent.ordination;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Dosis {
     private final LocalTime tid;
     private final double antal;
+    private String navn;
 
-    public Dosis(LocalTime tid, double antal) {
+    // ----------------------------------------------------------------------------------------------------------------
+
+    Dosis(String navn, LocalTime tid, double antal) { // OBS: Package visible
+        this.navn = navn;
         this.tid = tid;
         this.antal = antal;
+    }
+
+    public String getNavn() {
+        return navn;
     }
 
     public double getAntal() {
