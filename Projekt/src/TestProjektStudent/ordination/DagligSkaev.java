@@ -22,7 +22,7 @@ public class DagligSkaev extends Ordination {
         this.antal = antal;
     }
 
-    public ArrayList<Dosis> getDosis() {
+    public ArrayList<Dosis> getDoser() {
         return new ArrayList<>();
     }
 

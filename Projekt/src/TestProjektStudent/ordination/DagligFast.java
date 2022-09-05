@@ -11,7 +11,6 @@ public class DagligFast extends Ordination {
     public DagligFast(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
         super(startDen, slutDen, laegemiddel);
     }
-,
 
     public void opretDosis(double morgenAntal, double middagAntal, double aftenAntal, double natAntal) {
         double[] antal = {morgenAntal, middagAntal, aftenAntal, natAntal};
