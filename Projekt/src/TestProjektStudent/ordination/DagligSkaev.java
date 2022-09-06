@@ -16,8 +16,8 @@ public class DagligSkaev extends Ordination {
     // ----------------------------------------------------------------------------------------------------------------
 
 
-    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
-        super(startDen, slutDen, laegemiddel);
+    public DagligSkaev(LocalDate startDato, LocalDate slutDato, Laegemiddel laegemiddel) {
+        super(startDato, slutDato, laegemiddel);
     }
 
     public ArrayList<Dosis> getDoser() {

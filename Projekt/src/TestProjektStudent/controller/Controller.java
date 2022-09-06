@@ -22,15 +22,10 @@ public abstract class Controller {
      * Pre: antal > 0.
      */
     public static PN opretPNOrdination(
-            LocalDate startDato, LocalDate slutDato, Patient patient, Laegemiddel laegemiddel, double antal) {
-        PN pn;
-        if (startDato.isBefore(slutDato)){
-            pn = new PN(startDato,slutDato,laegemiddel,antal);
-            patient.addOrdination(pn);
-        }else
-            throw new IllegalArgumentException("Startdatoen er efter slutdatoen. FEJL!");
+            LocalDate startDato, LocalDate slutDato, Patient patient, Laegemiddel laegemiddel,
+            double antal) {
 
-        return pn;
+        return null;
     }
 
     /**
