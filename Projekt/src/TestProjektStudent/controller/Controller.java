@@ -22,10 +22,14 @@ public abstract class Controller {
      * Pre: antal > 0.
      */
     public static PN opretPNOrdination(
-            LocalDate startDato, LocalDate slutDato, Patient patient, Laegemiddel laegemiddel,
-            double antal) {
-
-        return null;
+            LocalDate startDato, LocalDate slutDato, Patient patient, Laegemiddel laegemiddel, double antal) {
+        PN pn;
+        if (startDato.isBefore(slutDato)){
+            pn = new PN(startDato,slutDato,laegemiddel,antal);
+            patient.addOrdination(pn);
+        }else
+            throw new IllegalArgumentException("Startdatoen er efter slutdatoen. FEJL!");
+        return pn;
     }
 
     /**
@@ -89,8 +93,11 @@ public abstract class Controller {
      * (afhænger af patientens vægt).
      */
     public static double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
-        double dosis = 0;
-        if (patient.getVaegt() < 25){
+        double dosis;
+        if (patient.getVaegt() <= 0){
+            throw new IllegalArgumentException("Vægten kan ikke være under eller lig 0");
+        }
+        else if (patient.getVaegt() < 25){
             dosis = laegemiddel.getEnhedPrKgPrDoegnLet();
         }
         else if (patient.getVaegt() >= 25 && patient.getVaegt() < 120){
