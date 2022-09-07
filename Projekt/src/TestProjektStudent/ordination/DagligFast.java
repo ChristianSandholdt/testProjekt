@@ -15,8 +15,10 @@ public class DagligFast extends Ordination {
     public void opretDosis(double morgenAntal, double middagAntal, double aftenAntal, double natAntal) {
         double[] antal = {morgenAntal, middagAntal, aftenAntal, natAntal};
         LocalTime[] tidspunkter = {LocalTime.of(8, 0), LocalTime.of(12,0), LocalTime.of(18,0),LocalTime.of(0,00)};
-
         for (int i = 0; i < doser.length; i++) {
+            if (antal[i] < 0){
+                throw new IllegalArgumentException("Fejl, antal kan ikke være mindre end 0");
+            }
             Dosis d = new Dosis(tidspunkter[i], antal[i]);
             doser[i] = d;
         }
