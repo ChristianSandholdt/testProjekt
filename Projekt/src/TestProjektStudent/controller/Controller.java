@@ -46,6 +46,7 @@ public abstract class Controller {
             dagligFast = new DagligFast(startDato,slutDato,laegemiddel);
             dagligFast.opretDosis(morgenAntal, middagAntal, aftenAntal, natAntal);
             patient.addOrdination(dagligFast);
+
         }else
             throw new IllegalArgumentException("Startdatoen er efter slutdatoen. FEJL!");
 

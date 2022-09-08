@@ -1,21 +1,24 @@
 package TestProjektStudent.controller;
 
+import TestProjektStudent.ordination.DagligFast;
+import TestProjektStudent.ordination.DagligSkaev;
 import TestProjektStudent.ordination.Laegemiddel;
 import TestProjektStudent.ordination.Patient;
+import TestProjektStudent.storage.Storage;
 import org.junit.jupiter.api.Test;
 
 import javax.naming.ldap.Control;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerTest {
 
 
-    /**
-     * PRE: Vægt > 0
-     */
 
     Laegemiddel paracetamol = new Laegemiddel("Paracetamol", 1, 1.5,2, "Ml");
+
 
 
     Patient vaegt1 = new Patient("1234","Martin",1);
@@ -25,9 +28,12 @@ class ControllerTest {
     Patient vaegt120 = new Patient("1234","Martin",120);
     Patient vaegt121 = new Patient("1234","Martin",121);
     Patient vaegt145 = new Patient("1234","Martin",145);
-    Patient vaegtMinus1 = new Patient("1234","Martin",-1);
+//    Patient vaegtMinus1 = new Patient("1234","Martin",-1);
 
 
+     /**
+     * PRE: Vægt > 0
+     */
 
     @Test
     void anbefaletDosisPrDoegnVaegt1() {
@@ -86,7 +92,28 @@ class ControllerTest {
 //        assertEquals(-1*1.0,actual);
 //    }
 
+    @Test
+    void opretDagligFastOrdination(){
+        //Arrange
+        Storage storage = new Storage();
+        Controller.setStorage(storage);
+        Patient p = Controller.opretPatient("121212", "Kurt", 100.0);
 
+        //Act
+        DagligFast d = Controller.opretDagligFastOrdination(LocalDate.of(2022,9,15),
+                LocalDate.of(2022,9, 17),p,paracetamol,
+                1,2,3,4);
+
+        //Assert
+        assertNotNull(d);
+        assertTrue(storage.getAllPatienter().get(0).getOrdinationer().contains(d));
+        assertEquals(1,d.getDoser()[0].getAntal() );
+        assertEquals(2,d.getDoser()[1].getAntal() );
+        assertEquals(3,d.getDoser()[2].getAntal());
+        assertEquals(4,d.getDoser()[3].getAntal());
+        assertEquals(LocalDate.of(2022,9,15), d.getStartDato());
+        assertEquals(LocalDate.of(2022,9,17), d.getSlutDato());
+    }
 
 
 }
