@@ -33,21 +33,20 @@ class DagligFastTest {
         Dosis actualAften = new Dosis(LocalTime.of(18,0),3);
         Dosis actualNat = new Dosis(LocalTime.of(0,0),4);
 
-        Dosis[] doser = dagligFast.getDoser();
         //Assert
         dagligFast.opretDosis(1,2,3,4);
         //Act
-        assertEquals(doser[0].getTid(), actualMorgen.getTid());
-        assertEquals(doser[0].getAntal(), actualMorgen.getAntal());
+        assertEquals(LocalTime.of(8,0), actualMorgen.getTid());
+        assertEquals(1, actualMorgen.getAntal());
 
-        assertEquals(doser[1].getTid(), actualMiddag.getTid());
-        assertEquals(doser[1].getAntal(), actualMiddag.getAntal());
+        assertEquals(LocalTime.of(12,0), actualMiddag.getTid());
+        assertEquals(2, actualMiddag.getAntal());
 
-        assertEquals(doser[2].getTid(), actualAften.getTid());
-        assertEquals(doser[2].getAntal(), actualAften.getAntal());
+        assertEquals(LocalTime.of(18,0), actualAften.getTid());
+        assertEquals(3, actualAften.getAntal());
 
-        assertEquals(doser[3].getTid(), actualNat.getTid());
-        assertEquals(doser[3].getAntal(), actualNat.getAntal());
+        assertEquals(LocalTime.of(0,0), actualNat.getTid());
+        assertEquals(4, actualNat.getAntal());
     }
 
 
@@ -67,17 +66,17 @@ class DagligFastTest {
 //
 //        dagligFast.opretDosis(-1,2,-3,4);
 //        //Act
-//        assertEquals(doser[0].getTid(), actualMorgen.getTid());
-//        assertEquals(doser[0].getAntal(), actualMorgen.getAntal());
+//        assertEquals(LocalTime.of(8,0), actualMorgen.getTid());
+//        assertEquals(-1, actualMorgen.getAntal());
 //
-//        assertEquals(doser[1].getTid(), actualMiddag.getTid());
-//        assertEquals(doser[1].getAntal(), actualMiddag.getAntal());
+//        assertEquals(LocalTime.of(12,0), actualMiddag.getTid());
+//        assertEquals(2, actualMiddag.getAntal());
 //
-//        assertEquals(doser[2].getTid(), actualAften.getTid());
-//        assertEquals(doser[2].getAntal(), actualAften.getAntal());
+//        assertEquals(LocalTime.of(18,0), actualAften.getTid());
+//        assertEquals(-3, actualAften.getAntal());
 //
-//        assertEquals(doser[3].getTid(), actualNat.getTid());
-//        assertEquals(doser[3].getAntal(), actualNat.getAntal());
+//        assertEquals(LocalTime.of(0,0), actualNat.getTid());
+//        assertEquals(4, actualNat.getAntal());
 //    }
 
 }

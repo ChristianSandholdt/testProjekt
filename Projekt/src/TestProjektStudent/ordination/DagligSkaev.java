@@ -21,7 +21,7 @@ public class DagligSkaev extends Ordination {
     }
 
     public ArrayList<Dosis> getDoser() {
-        return new ArrayList<>();
+        return new ArrayList<>(dosis);
     }
     // ----------------------------------------------------------------------------------------------------------------
 

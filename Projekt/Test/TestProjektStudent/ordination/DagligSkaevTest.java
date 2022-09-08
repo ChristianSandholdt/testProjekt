@@ -71,8 +71,8 @@ class DagligSkaevTest {
         //Act
         Dosis actual = new Dosis(LocalTime.of(23,59),3);
         //Assert
-        assertEquals(LocalTime.of(12,0),actual.getTid());
-        assertEquals(0,actual.getAntal());
+        assertEquals(LocalTime.of(23,59),actual.getTid());
+        assertEquals(3,actual.getAntal());
     }
 
 
