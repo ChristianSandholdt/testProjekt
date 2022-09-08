@@ -98,12 +98,12 @@ public abstract class Controller {
             throw new IllegalArgumentException("Vægten kan ikke være under eller lig 0");
         }
         else if (patient.getVaegt() < 25){
-            dosis = laegemiddel.getEnhedPrKgPrDoegnLet();
+            dosis = laegemiddel.getEnhedPrKgPrDoegnLet() * patient.getVaegt();
         }
-        else if (patient.getVaegt() >= 25 && patient.getVaegt() < 120){
-            dosis = laegemiddel.getEnhedPrKgPrDoegnNormal();
+        else if (patient.getVaegt() >= 25 && patient.getVaegt() <= 120){
+            dosis = laegemiddel.getEnhedPrKgPrDoegnNormal() * patient.getVaegt();
         }
-        else dosis = laegemiddel.getEnhedPrKgPrDoegnTung();
+        else dosis = laegemiddel.getEnhedPrKgPrDoegnTung() * patient.getVaegt();
         return dosis;
     }
 

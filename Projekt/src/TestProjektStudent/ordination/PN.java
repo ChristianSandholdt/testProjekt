@@ -25,7 +25,7 @@ public class PN extends Ordination {
      * Returner false ellers, og datoen givesDen ignoreres.
      */
     public boolean givDosis(LocalDate givesDen) {
-        if (givesDen.isAfter(getStartDato()) && givesDen.isBefore(getSlutDato())){
+        if (givesDen.compareTo(getStartDato()) >= 0 && givesDen.compareTo((getSlutDato())) <= 0){
             datoer.add(givesDen);
             return true;
         }
@@ -34,7 +34,7 @@ public class PN extends Ordination {
 
     /** Returner antal gange ordinationen er anvendt. */
     public int getAntalGangeGivet() {
-        return datoer.size()-1;
+        return datoer.size();
     }
 
 
@@ -46,8 +46,14 @@ public class PN extends Ordination {
 
     @Override
     public double doegnDosis() {
-        double sum = antalEnheder / (int) ChronoUnit.DAYS.between(getStartDato(),getSlutDato());
-        return sum;
+        double dosis = 0;
+        if (datoer.size() == 1){
+            dosis = samletDosis();
+        }
+        else if (datoer.size() > 1){
+            dosis = samletDosis() / (datoer.get(0).until(datoer.get(datoer.size()-1), ChronoUnit.DAYS) + 1);
+        }
+        return dosis;
     }
 
     @Override
